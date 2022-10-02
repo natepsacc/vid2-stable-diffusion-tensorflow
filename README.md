@@ -4,6 +4,10 @@ ffmpeg -framerate 24 -pattern_type glob -i '*.png' \
   -c:v libx264 -pix_fmt yuv420p out.mp4
 ```
 
+
+https://user-images.githubusercontent.com/14899664/193481826-1e768fd0-a8c7-4d60-b2cf-b5f3433c19ad.mp4
+
+
 # Stable Diffusion in TensorFlow / Keras
 
 A Keras / Tensorflow implementation of Stable Diffusion. 
