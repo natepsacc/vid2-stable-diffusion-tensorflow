@@ -1,11 +1,13 @@
 # added vid2, video  to frames sent through stable diffusion 
 ```bash
-ffmpeg -framerate 24 -pattern_type glob -i '*.png' \
-  -c:v libx264 -pix_fmt yuv420p out.mp4
+ffmpeg -framerate 24 -i output%d.png -c:v libx264 -pix_fmt yuv420p 230.mp4
 ```
 
 
-https://user-images.githubusercontent.com/14899664/193481826-1e768fd0-a8c7-4d60-b2cf-b5f3433c19ad.mp4
+https://user-images.githubusercontent.com/14899664/193485916-88f5eeea-06d6-47dd-9834-fa8117f1b80e.mp4
+
+
+
 
 
 # Stable Diffusion in TensorFlow / Keras
