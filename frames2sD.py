@@ -4,8 +4,8 @@ from PIL import Image
 #from createframes import createframes
 
 generator = StableDiffusion(
-    img_height=256,
-    img_width=256,
+    img_height=768,
+    img_width=768,
     jit_compile=False,
 )
 
@@ -26,7 +26,7 @@ while True:
     print("The color is within tolerance range, so we will use the first prompt")
     img = generator.generate(
     prompt,
-    num_steps=2,
+    num_steps=75,
     unconditional_guidance_scale=1.5,
     temperature=1,
     batch_size=1,
@@ -39,7 +39,7 @@ while True:
     print('The color of image is outside tolerance range, so we will switch to permanently prompt two')
     img = generator.generate(
     prompttwo,
-    num_steps=2,
+    num_steps=75,
     unconditional_guidance_scale=1.5,
     temperature=1,
     batch_size=1,
