@@ -11,7 +11,7 @@ generator = StableDiffusion(
 
 
 
-count = 0
+count = 454
 prompt = 'oil painting by van gogh'  
 prompttwo = 'oil painting by monet'  
 promptselector = 0
@@ -22,12 +22,15 @@ while True:
   frametwo = cv2.imread("frames/frame%d.jpg" % (count + 1 ))
   difference = cv2.subtract(frameone , frametwo)
   b, g, r = cv2.split(difference)    
-  if cv2.countNonZero(b) <= 1000000 and cv2.countNonZero(g) <= 1000000 and cv2.countNonZero(r) <= 1000000 and promptselector == 0:
+  if cv2.countNonZero(b) <= 700000 and cv2.countNonZero(g) <= 700000 and cv2.countNonZero(r) <= 700000 and promptselector == 0:
     print("The color is within tolerance range, so we will use the first prompt")
+    print(cv2.countNonZero(b))
+    print(cv2.countNonZero(g))
+    print(cv2.countNonZero(r))
     img = generator.generate(
     prompt,
-    num_steps=75,
-    unconditional_guidance_scale=1.5,
+    num_steps=85,
+    unconditional_guidance_scale=3.5,
     temperature=1,
     batch_size=1,
     input_image= "frames/frame%d.jpg" % count
@@ -39,8 +42,8 @@ while True:
     print('The color of image is outside tolerance range, so we will switch to permanently prompt two')
     img = generator.generate(
     prompttwo,
-    num_steps=75,
-    unconditional_guidance_scale=1.5,
+    num_steps=85,
+    unconditional_guidance_scale=3.5,
     temperature=1,
     batch_size=1,
     input_image= "frames/frame%d.jpg" % count
